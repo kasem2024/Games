@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --bg-color: #ffffff;
+  --bg-color-reverse: #000000;
+  --text-color-reverse:#ffffff;
+  --text-color: #000000;
+  --bg-primary-color: #e2e2e2;
+  --text-primary-color:#222222;
+}
+
+.dark {
+  --bg-color: #000000;
+  --bg-color-reverse: #ffffff;
+  --text-color-reverse:#000000;
+  --text-color: #ffffff;
+  --bg-primary-color: #222222;
+  --text-primary-color:#e2e2e2;
+}
+
+.bg-custom {
+  background-color: var(--bg-color);
+}
+.bg-custom-reverse {
+  background-color: var(--bg-color-reverse);
+}
+.text-custom-reverse{
+  color:var(--text-color-reverse)
+}
+.text-custom {
+  color: var(--text-color);
+}
+
+.bg-primary {
+  background-color: var(--bg-primary-color);
+  color:var(--text-primary-color)
+}
+
+
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  display: grid;
+  grid: 50%/50%;
+  color: #65b615;
+  --_g: no-repeat linear-gradient(currentColor 0 0);
+  background: var(--_g),var(--_g),var(--_g);
+  background-size: 50.1% 50.1%;
+  animation: 
+    l6-0   1.5s infinite steps(1) alternate,
+    l6-0-0 3s   infinite steps(1);
+}
+.loader::before {
+  content: "";
+  background: currentColor;
+  transform: perspective(150px) rotateY(0deg) rotateX(0deg);
+  transform-origin: bottom right; 
+  animation: l6-1 1.5s infinite linear alternate;
+}
+/* HTML: <div class="loader"></div> */
+.loader2 {
+  width: 20px;
+  aspect-ratio: 1;
+  background: #3cb025;
+  box-shadow: 0 0 60px 15px #25b02e;
+  transform: translate(-80px);
+  clip-path: inset(0);
+  animation:
+    l4-1 0.5s ease-in-out infinite alternate,
+    l4-2 1s   ease-in-out infinite;
+}
+@keyframes l4-1 {
+  100% {transform: translateX(80px)}
+}
+@keyframes l4-2 {
+   33% {clip-path: inset(0 0 0 -100px)}
+   50% {clip-path: inset(0 0 0 0)     }
+   83% {clip-path: inset(0 -100px 0 0)}
+}
+@keyframes l6-0 {
+  0%  {background-position: 0    100%,100% 100%,100% 0}
+  33% {background-position: 100% 100%,100% 100%,100% 0}
+  66% {background-position: 100% 0   ,100% 0   ,100% 0}
+}
+@keyframes l6-0-0 {
+  0%  {transform: scaleX(1)  rotate(0deg)}
+  50% {transform: scaleX(-1) rotate(-90deg)}
+}
+@keyframes l6-1 {
+  16.5%{transform:perspective(150px) rotateX(-90deg)  rotateY(0deg)    rotateX(0deg);filter:grayscale(0.8)}
+  33%  {transform:perspective(150px) rotateX(-180deg) rotateY(0deg)    rotateX(0deg)}
+  66%  {transform:perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(0deg)}
+  100% {transform:perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(-180deg);filter:grayscale(0.8)}
+}
+
+
+
+body {
+  margin: 0;
+  /* display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh; */
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+
+
